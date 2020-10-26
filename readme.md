@@ -1,23 +1,22 @@
-# df [![Build Status](https://travis-ci.org/sindresorhus/df.svg?branch=master)](https://travis-ci.org/sindresorhus/df)
-
 > Get free disk space info from [`df -kP`](https://en.wikipedia.org/wiki/Df_\(Unix\))
 
 Works on any Unix-based system like macOS and Linux.
 
 *Created because all the other `df` wrappers are terrible. This one uses simple and explicit parsing. Uses `execFile` rather than `exec`. Ensures better platform portability by using the `-P` flag. Returns sizes in bytes instead of kilobytes and the capacity as a float.*
 
+**Forked from** [sindresorhus/df](//github.com/sindresorhus/df)
 
 ## Install
 
 ```
-$ npm install @sindresorhus/df
+$ npm install @mendelgusmao/df
 ```
 
 
 ## Usage
 
 ```js
-const df = require('@sindresorhus/df');
+const df = require('@mendelgusmao/df');
 
 (async () => {
 	console.log(await df());

@@ -45,7 +45,7 @@ declare const df: {
 
 	@example
 	```
-	import df = require('@sindresorhus/df');
+	import df = require('@mendelgusmao/df');
 
 	(async () => {
 		console.log(await df());
@@ -72,7 +72,7 @@ declare const df: {
 
 	@example
 	```
-	import df = require('@sindresorhus/df');
+	import df = require('@mendelgusmao/df');
 
 	(async () => {
 		console.log(await df.fs('/dev/disk1'));
@@ -99,7 +99,7 @@ declare const df: {
 
 	@example
 	```
-	import df = require('@sindresorhus/df');
+	import df = require('@mendelgusmao/df');
 
 	(async () => {
 		console.log(await df.file(__dirname));
