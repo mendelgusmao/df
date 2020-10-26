@@ -42,19 +42,19 @@ const parseOutput = async output => {
 	});
 };
 
-const run = async args => {
+const run = async (args = []) => {
 	const {stdout} = await execa('df', args);
 	return parseOutput(stdout);
 };
 
-const df = async () => run(['-kPT']);
+const df = async (args = []) => run(['-kPT', ...args]);
 
-df.fs = async name => {
+df.fs = async (name, args = []) => {
 	if (typeof name !== 'string') {
 		throw new TypeError('The `name` parameter required');
 	}
 
-	const data = await run(['-kPT']);
+	const data = await df(args);
 
 	for (const item of data) {
 		if (item.filesystem === name) {
@@ -65,14 +65,14 @@ df.fs = async name => {
 	throw new Error(`The specified filesystem \`${name}\` doesn't exist`);
 };
 
-df.file = async file => {
+df.file = async (file, args) => {
 	if (typeof file !== 'string') {
 		throw new TypeError('The `file` parameter is required');
 	}
 
 	let data;
 	try {
-		data = await run(['-kPT', file]);
+		data = await run(['-kPT', ...args, file]);
 	} catch (error) {
 		if (/No such file or directory/.test(error.stderr)) {
 			throw new Error(`The specified file \`${file}\` doesn't exist`);
