@@ -56,11 +56,11 @@ const df = require('@mendelgusmao/df');
 
 ## API
 
-### df()
+### df(args)
 
 Returns a `Promise<Object[]>` with a list of space info objects for each filesystem.
 
-### df.fs(path)
+### df.fs(path, args)
 
 Returns a `Promise<Object>` with the space info for the given filesystem path.
 
@@ -78,7 +78,7 @@ Type: `string`
 
 Path to a [filesystem device file](https://en.wikipedia.org/wiki/Device_file). Example: `'/dev/disk1'`.
 
-### df.file(path)
+### df.file(path, args)
 
 Returns a `Promise<Object>` with the space info for the filesystem the given file is part of.
 
@@ -87,3 +87,9 @@ Returns a `Promise<Object>` with the space info for the filesystem the given fil
 Type: `string`
 
 Path to a file on the filesystem to get the space info for.
+
+#### args
+
+Type: `string[]`
+
+For all methods, args is an array of arguments to be passed to `df`
